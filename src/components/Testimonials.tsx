@@ -112,7 +112,7 @@ const Testimonials = () => {
             What Our <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Clients Say</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Don't just take our word for it. Here's what our clients have to say about working with us.
+            Don&rsquo;t just take our word for it. Here's what our clients have to say about working with us.
           </p>
         </div>
 
