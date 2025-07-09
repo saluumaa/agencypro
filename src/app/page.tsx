@@ -7,7 +7,6 @@ import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import Services from "@/components/Services";
 import AboutIntro from '@/components/AboutIntro';
-import AboutSteps from '@/components/AboutSteps';
 import Footer from '@/components/Footer';
 import Testimonials from '@/components/Testimonials';
 
@@ -35,7 +34,6 @@ export default function Home() {
       <Header />
       <Hero />
       <Services />
-      
       <AboutIntro />
       <Testimonials />
       <Footer />
