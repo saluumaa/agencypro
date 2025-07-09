@@ -1,3 +1,4 @@
+//eslint-disable-next-line react/no-unescaped-entities
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
@@ -10,6 +11,7 @@ const Testimonials = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const titleRef = useRef<HTMLDivElement>(null);
 
+  
   const testimonials = [
     {
       id: 1,
@@ -112,7 +114,7 @@ const Testimonials = () => {
             What Our <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Clients Say</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Don&rsquo;t just take our word for it. Here's what our clients have to say about working with us.
+            Don&rsquo;t just take our word for it. Here&rsquo;s what our clients have to say about working with us.
           </p>
         </div>
 
@@ -135,6 +137,7 @@ const Testimonials = () => {
               </div>
 
               {/* Testimonial Text */}
+              {/* eslint-disable-next-line react/no-unescaped-entities */}
               <blockquote className="text-lg lg:text-xl text-gray-700 text-center mb-8 leading-relaxed">
                 "{testimonials[currentIndex].text}"
               </blockquote>
