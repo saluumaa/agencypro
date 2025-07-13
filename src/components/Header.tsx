@@ -8,7 +8,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const headerRef = useRef<HTMLHeaderElement>(null);
+  const headerRef = useRef<HTMLHeadElement>(null);
   const logoRef = useRef<HTMLDivElement>(null);
   const menuItemsRef = useRef<HTMLUListElement>(null);
 
