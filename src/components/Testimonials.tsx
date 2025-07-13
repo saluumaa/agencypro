@@ -1,5 +1,6 @@
-//eslint-disable-next-line react/no-unescaped-entities
 'use client';
+
+//eslint-disable-next-line react/no-unescaped-entities
 
 import { useState, useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
@@ -18,7 +19,7 @@ const Testimonials = () => {
       name: 'Sarah Johnson',
       position: 'CEO, TechStart Inc.',
       company: 'TechStart Inc.',
-      image: 'https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop',
+      image: 'https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop',
       rating: 5,
       text: 'Working with AgencyPro transformed our digital presence completely. Their attention to detail and creative approach exceeded our expectations. The team delivered a website that not only looks amazing but also drives real results.',
       logo: 'https://images.pexels.com/photos/1092644/pexels-photo-1092644.jpeg?auto=compress&cs=tinysrgb&w=100&h=50&fit=crop'
@@ -137,9 +138,8 @@ const Testimonials = () => {
               </div>
 
               {/* Testimonial Text */}
-              {/* eslint-disable-next-line react/no-unescaped-entities */}
               <blockquote className="text-lg lg:text-xl text-gray-700 text-center mb-8 leading-relaxed">
-                "{testimonials[currentIndex].text}"
+                &rdquo;{testimonials[currentIndex].text}&rdquo;
               </blockquote>
 
               {/* Rating */}
