@@ -5,16 +5,16 @@ import {gsap} from 'gsap';
 import { ArrowRight, Play } from 'lucide-react';
 
 const Hero = () => {
-  const heroRef = useRef<HTMLSectionElement>(null);
-  const titleRef = useRef<HTMLHeadingElement>(null);
-  const subtitleRef = useRef<HTMLParagraphElement>(null);
-  const ctaRef = useRef<HTMLDivElement>(null);
-  const backgroundRef = useRef<HTMLDivElement>(null);
+  const heroRef = useRef<HTMLElement>(null);
+const titleRef = useRef<HTMLHeadingElement>(null);
+const subtitleRef = useRef<HTMLParagraphElement>(null);
+const ctaRef = useRef<HTMLDivElement>(null);
+const backgroundRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    const tl = gsap.timeline({ delay: 0.5 });
+useEffect(() => {
+  const tl = gsap.timeline({ delay: 0.5 });
 
-    // Background parallax effect
+  if (backgroundRef.current && heroRef.current) {
     gsap.to(backgroundRef.current, {
       yPercent: -50,
       scrollTrigger: {
@@ -24,32 +24,48 @@ const Hero = () => {
         scrub: true,
       },
     });
+  }
 
-    // Text animations
+  if (titleRef.current && subtitleRef.current && ctaRef.current) {
+    const titleChildren = Array.from(titleRef.current.children);
+    const ctaChildren = Array.from(ctaRef.current.children);
+
     tl.fromTo(
-      titleRef.current?.children,
+      titleChildren,
       { opacity: 0, y: 100 },
-      { 
-        opacity: 1, 
-        y: 0, 
-        duration: 1.2, 
-        stagger: 0.2, // stagger is used to animate each letter of the title separately
-        ease: 'power4.out' 
+      {
+        opacity: 1,
+        y: 0,
+        duration: 1.2,
+        stagger: 0.2,
+        ease: 'power4.out',
       }
     )
-    .fromTo(
-      subtitleRef.current,
-      { opacity: 0, y: 50 },
-      { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out' },
-      '-=0.6' // what this is doing -=0.6 is it makes the subtitle animation start 0.6 seconds before the title animation ends
-    )
-    .fromTo(
-      ctaRef.current?.children,
-      { opacity: 0, y: 30 },
-      { opacity: 1, y: 0, duration: 0.6, stagger: 0.1, ease: 'power3.out' },
-      '-=0.4'
-    );
-  }, []);
+      .fromTo(
+        subtitleRef.current,
+        { opacity: 0, y: 50 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          ease: 'power3.out',
+        },
+        '-=0.6'
+      )
+      .fromTo(
+        ctaChildren,
+        { opacity: 0, y: 30 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.6,
+          stagger: 0.1,
+          ease: 'power3.out',
+        },
+        '-=0.4'
+      );
+  }
+}, []);
 
   const scrollToContact = () => {
     const element = document.querySelector('#contact');
