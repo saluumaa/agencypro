@@ -146,9 +146,11 @@ const AboutIntro = () => {
 
         <div className="flex flex-col gap-16 relative z-10">
           {steps.map((step, i) => (
-            <div
-              key={i}
-              ref={(el) => (stepChildRef.current[i] = el)}
+           <div
+            key={i}
+            ref={(el) => {
+              stepChildRef.current[i] = el;
+            }}
               className="bg-white p-8 rounded-2xl shadow-lg text-center"
             >
               <h3 className="text-2xl font-bold text-gray-900 mb-2">{step.title}</h3>
