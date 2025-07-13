@@ -31,27 +31,33 @@ const Header = () => {
   }, []);
 
   useEffect(() => {
-    // Animate header on mount
     const tl = gsap.timeline();
-    
-    tl.fromTo(
-      logoRef.current,
-      { opacity: 0, y: -20 },
-      { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out' }
-    )
-    .fromTo(
-      menuItemsRef.current?.children,
-      { opacity: 0, y: -20 },
-      { 
-        opacity: 1, 
-        y: 0, 
-        duration: 0.6, 
-        stagger: 0.1, 
-        ease: 'power3.out' 
-      },
-      '-=0.4'
-    );
+
+    if (logoRef.current) {
+      tl.fromTo(
+        logoRef.current,
+        { opacity: 0, y: -20 },
+        { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out' }
+      );
+    }
+
+    if (menuItemsRef.current) {
+      const items = Array.from(menuItemsRef.current.children); // Now it's a proper array
+      tl.fromTo(
+        items,
+        { opacity: 0, y: -20 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.6,
+          stagger: 0.1,
+          ease: 'power3.out',
+        },
+        '-=0.4'
+      );
+    }
   }, []);
+
 
   const scrollToSection = (href: string) => {
     const element = document.querySelector(href);
